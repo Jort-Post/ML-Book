@@ -47,7 +47,7 @@ class Perceptron:
         """
 
         rgen = np.random.RandomState(self.random_state)
-        self.w_ = rgen.normal(loc=0.0, scale=1.0, size=X.shape[1])
+        self.w_ = rgen.normal(loc=0.0, scale=0.01, size=X.shape[1])
         self.b_ = np.float_(0.)
         self.errors_ = []
 
@@ -65,4 +65,4 @@ class Perceptron:
         return np.dot(X, self.w_) + self.b_
 
     def predict(self, X):
-        return np.where(self.net_input(X) >= 0.0, 1, -1)
+        return np.where(self.net_input(X) >= 0.0, 1, 0)
